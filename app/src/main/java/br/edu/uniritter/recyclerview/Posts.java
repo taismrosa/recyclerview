@@ -1,16 +1,11 @@
 package br.edu.uniritter.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -65,11 +60,10 @@ public class Posts extends AppCompatActivity implements Response.Listener<JSONAr
             }
 
             RecyclerView rv = findViewById(R.id.rvPosts);
-            GridLayoutManager glm = new GridLayoutManager(this,2);
-            rv.setLayoutManager(glm);
+            LinearLayoutManager llm = new LinearLayoutManager(this);
+            rv.setLayoutManager(llm);
 
-            PostAdapter postAdapter = new PostAdapter(posts, R.layout.layout_post);
-            Toast.makeText(this.getApplicationContext(), "teste "+postAdapter, Toast.LENGTH_LONG).show();
+            PostAdapter postAdapter = new PostAdapter(posts);
             rv.setAdapter(postAdapter);
         }
         catch (JSONException e) {

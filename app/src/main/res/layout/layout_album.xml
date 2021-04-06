@@ -3,21 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#002B2B2B"
-    android:orientation="vertical"
     android:padding="10dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardPost"
+        android:id="@+id/cardAlbum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00FFB0CE"
         app:cardBackgroundColor="@color/colorPrimary">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00FF94B9"
             android:orientation="vertical">
 
             <LinearLayout
@@ -27,7 +23,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/postUserId"
+                    android:id="@+id/albumUserId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -35,7 +31,7 @@
                     android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/postId"
+                    android:id="@+id/albumId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -45,27 +41,14 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/postTitle"
+                android:id="@+id/albumTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#00FF94B9"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
+                android:padding="10dp"
                 android:text="TextView"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/postBody"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:text="TextView"
-                android:textColor="#FFFFFF" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

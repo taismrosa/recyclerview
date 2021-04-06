@@ -1,6 +1,8 @@
 package br.edu.uniritter.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.uniritter.recyclerview.adapter.CommentAdapter;
 import br.edu.uniritter.recyclerview.model.Comment;
 
 public class Comments extends AppCompatActivity implements Response.Listener<JSONArray>, Response.ErrorListener {
@@ -56,6 +59,13 @@ public class Comments extends AppCompatActivity implements Response.Listener<JSO
                 );
                 comments.add(obj);
             }
+
+            RecyclerView rv = findViewById(R.id.rvComments);
+            LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            rv.setLayoutManager(llm);
+
+            CommentAdapter commentAdapter = new CommentAdapter(comments);
+            rv.setAdapter(commentAdapter);
         }
         catch (JSONException e) {
             Log.e("ERRO ",e.getMessage());

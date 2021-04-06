@@ -1,6 +1,8 @@
 package br.edu.uniritter.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.uniritter.recyclerview.adapter.AlbumAdapter;
 import br.edu.uniritter.recyclerview.model.Album;
 
 public class Albums extends AppCompatActivity implements Response.Listener<JSONArray>, Response.ErrorListener {
@@ -54,6 +57,13 @@ public class Albums extends AppCompatActivity implements Response.Listener<JSONA
                 );
                 albums.add(obj);
             }
+
+            RecyclerView rv = findViewById(R.id.rvAlbums);
+            StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            rv.setLayoutManager(sglm);
+
+            AlbumAdapter albumAdapter = new AlbumAdapter(albums);
+            rv.setAdapter(albumAdapter);
         }
         catch (JSONException e) {
             Log.e("ERRO ",e.getMessage());
